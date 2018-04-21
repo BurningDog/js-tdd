@@ -1,0 +1,33 @@
+export function getChange(totalPayable, cashPaid) {
+  var coins = [200, 100, 50, 20, 10, 5, 2, 1];
+  const change = [];
+
+  // Figure out the difference
+  // TODO: should this be its own function, along with a unit test?
+  let difference = calcDifference(totalPayable, cashPaid);
+
+  // Express the difference as a summation of different coins
+  let i = 0;
+  let loop_through_coins = true;
+
+  while (loop_through_coins) {
+    const coin = coins[i];
+    const coinIsLargerThanRequiredChange = difference < coin;
+    if (coinIsLargerThanRequiredChange) {
+      i++;
+    } else {
+      change.push(coin);
+      difference -= coin;
+    }
+    const changeIsCorrect = difference === 0;
+    if (changeIsCorrect) {
+      loop_through_coins = false;
+    }
+  }
+
+  return change;
+}
+
+export function calcDifference(totalPayable, cashPaid) {
+  return cashPaid - totalPayable;
+}

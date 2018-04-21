@@ -3,15 +3,18 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "test": "babel-node test/*.test.js | faucet",
+    "test": "babel-node test/*.test.js --diag | faucet",
     "watch": "nodemon -q -x 'npm run test'",
-    "coverage": "istanbul cover tape ./test/*.test.js"    
+    "test-debug": "babel-node test/*.test.js --diag",
+    "watch-debug": "nodemon -q -x 'npm run test-debug'",
+    "coverage": "istanbul cover tape ./test/*.test.js"
   },
   "dependencies": {
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^8.0.0",
     "faucet": "^0.0.1",
     "istanbul": "^0.4.5",
+    "jscs": "^3.0.7",
     "tape": "^4.9.0"
   }
 }
