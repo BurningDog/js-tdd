@@ -15,12 +15,8 @@ test('getChange(1, 1) should return an empty array', function(assert) {
 });
 
 test('getChange(215, 300) should return [50, 20, 10, 5]', function(assert) {
-  let actual = vending_machine.calcDifference(215, 300);
-  let expected = 85;
-  assert.equal(actual, expected, 'Difference should be 85');
-
-  actual = vending_machine.getChange(215, 300);
-  expected = [50, 20, 10, 5];
+  const actual = vending_machine.getChange(215, 300);
+  const expected = [50, 20, 10, 5];
   assert.deepEqual(actual, expected, 'Should return array [50, 20, 10, 5]');
   assert.end();
 });

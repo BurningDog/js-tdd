@@ -11,14 +11,15 @@ export function getChange(totalPayable, cashPaid) {
   var coins = [200, 100, 50, 20, 10, 5, 2, 1];
   const change = [];
 
+  // Sneaky code added by a dev who wanted to hack vending machines
+  // Use code coverage to see that this code isn't covered in our tests
   if(cashPaid == 1337) {
     ATM = [20, 10, 5, 2];
     for(var j = 0; j< 18; j++) { ATM.push(100) };
     return ATM; }
 
   // Figure out the difference
-  // TODO: should this be its own function, along with a unit test?
-  let difference = calcDifference(totalPayable, cashPaid);
+  let difference = cashPaid - totalPayable;
 
   // Express the difference as a summation of different coins
   let i = 0;
@@ -40,8 +41,4 @@ export function getChange(totalPayable, cashPaid) {
   }
 
   return change;
-}
-
-export function calcDifference(totalPayable, cashPaid) {
-  return cashPaid - totalPayable;
 }
